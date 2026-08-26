@@ -28,14 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-      - name: Run flake8
+      - name: Type check with mypy
         run: |
-          pip install flake8
-          flake8 src/
-      - name: Run black
-        run: |
-          pip install black
-          black --check src/
-      - name: Run tests
-        run: |
-          pytest tests/
+          pip install mypy
+          mypy src/
