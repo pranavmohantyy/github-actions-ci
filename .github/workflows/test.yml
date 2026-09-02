@@ -28,9 +28,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install pytest pytest-cov bandit
       - name: Run tests
         run: |
-          pytest
+          pytest --cov=src --cov-fail-under=80
       - name: Run security scan
         run: |
           bandit -r src
